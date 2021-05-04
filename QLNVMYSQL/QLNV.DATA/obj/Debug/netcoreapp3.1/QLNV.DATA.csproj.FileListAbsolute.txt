@@ -1,9 +1,0 @@
-C:\Users\PhongNV\Documents\Phong\SSV\QLNVMYSQL\QLNV.DATA\bin\Debug\netcoreapp3.1\QLNV.DATA.deps.json
-C:\Users\PhongNV\Documents\Phong\SSV\QLNVMYSQL\QLNV.DATA\bin\Debug\netcoreapp3.1\QLNV.DATA.dll
-C:\Users\PhongNV\Documents\Phong\SSV\QLNVMYSQL\QLNV.DATA\bin\Debug\netcoreapp3.1\QLNV.DATA.pdb
-C:\Users\PhongNV\Documents\Phong\SSV\QLNVMYSQL\QLNV.DATA\obj\Debug\netcoreapp3.1\QLNV.DATA.csprojAssemblyReference.cache
-C:\Users\PhongNV\Documents\Phong\SSV\QLNVMYSQL\QLNV.DATA\obj\Debug\netcoreapp3.1\QLNV.DATA.AssemblyInfoInputs.cache
-C:\Users\PhongNV\Documents\Phong\SSV\QLNVMYSQL\QLNV.DATA\obj\Debug\netcoreapp3.1\QLNV.DATA.AssemblyInfo.cs
-C:\Users\PhongNV\Documents\Phong\SSV\QLNVMYSQL\QLNV.DATA\obj\Debug\netcoreapp3.1\QLNV.DATA.csproj.CoreCompileInputs.cache
-C:\Users\PhongNV\Documents\Phong\SSV\QLNVMYSQL\QLNV.DATA\obj\Debug\netcoreapp3.1\QLNV.DATA.dll
-C:\Users\PhongNV\Documents\Phong\SSV\QLNVMYSQL\QLNV.DATA\obj\Debug\netcoreapp3.1\QLNV.DATA.pdb
