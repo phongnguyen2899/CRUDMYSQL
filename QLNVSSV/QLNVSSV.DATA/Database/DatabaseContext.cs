@@ -35,7 +35,7 @@ namespace QLNVSSV.DATA.Database
             _sqlCommand.Parameters.Clear();
 
             //dinh nghia cac proc theo format
-            _sqlCommand.CommandText= $"Proc_Delete{entityName}ById";
+            _sqlCommand.CommandText = $"Proc_Delete{entityName}ById";
             _sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
             _sqlCommand.Parameters.AddWithValue("id", id);
 
@@ -91,10 +91,79 @@ namespace QLNVSSV.DATA.Database
             }
             return listInstance;
         }
-        //lay data theo proceduce truyen vao
-        public IEnumerable<T> Get(string storeName)
+
+        public IEnumerable<T> GetPageing(int pageindex,int pagesize)
         {
-            throw new NotImplementedException();
+            var listInstance = new List<T>();
+            var entityName = typeof(T).Name;
+            _sqlCommand.CommandText = $"Proc_GetPageing{entityName}";
+            _sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            if (_sqlConnection.State == System.Data.ConnectionState.Closed)
+                _sqlConnection.Open();
+
+            _sqlCommand.Parameters.AddWithValue($"@pageindex", pageindex);
+            _sqlCommand.Parameters.AddWithValue($"@pagesize", pagesize);
+
+            MySqlDataReader mySqlDataReader = _sqlCommand.ExecuteReader();
+            while (mySqlDataReader.Read())
+            {
+                var instance = Activator.CreateInstance<T>();
+                for (int i = 0; i < mySqlDataReader.FieldCount; i++)
+                {
+                    var columnName = mySqlDataReader.GetName(i);
+                    var value = mySqlDataReader.GetValue(i);
+                    var propertyInfo = instance.GetType().GetProperty(columnName);
+                    if (propertyInfo != null && value != DBNull.Value)
+                    {
+                        if (propertyInfo.PropertyType == typeof(Boolean))
+                            propertyInfo.SetValue(instance, Convert.ToBoolean(value));
+                        else
+                            propertyInfo.SetValue(instance, value);
+                    }
+                }
+                listInstance.Add(instance);
+            }
+            return listInstance;
+        }
+
+        //lay data theo proceduce truyen vao
+        public IEnumerable<T> Get(string storeName,object[] obj=null)
+        {
+            var entities = new List<T>();
+
+            //loai bo phan param
+            var store = storeName.Split(' ')[0];
+            _sqlCommand.CommandText = store;
+            _sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            string[] listparam= storeName.Split(' ');
+
+            int j = 0;
+            for(int i = 0; i < listparam.Length; i++)
+            {
+                if (listparam[i].Contains('@'))
+                {
+                    _sqlCommand.Parameters.AddWithValue(listparam[i].TrimStart('@'),obj[j]);
+                    j++;
+                }
+                
+            }
+
+            MySqlDataReader mySqlDataReader = _sqlCommand.ExecuteReader();
+            while (mySqlDataReader.Read())
+            {
+                var entity = Activator.CreateInstance<T>();
+
+                for (int i = 0; i < mySqlDataReader.FieldCount; i++)
+                {
+                    var columnName = mySqlDataReader.GetName(i);
+                    var value = mySqlDataReader.GetValue(i);
+                    var propertyInfo = entity.GetType().GetProperty(columnName);
+                    if (propertyInfo != null && value != DBNull.Value)
+                        propertyInfo.SetValue(entity, value);
+                }
+                entities.Add(entity);
+            }
+            return entities;
         }
 
         public object Get(string storeName, string code)
@@ -219,6 +288,32 @@ namespace QLNVSSV.DATA.Database
                     var paramName = param.ParameterName;
                     if (paramName == $"@{propertyName}")
                         param.Value = propertyValue;
+                }
+
+            }
+
+            var affectRows = _sqlCommand.ExecuteNonQuery();
+            _sqlConnection.Close();
+            return affectRows;
+        }
+
+        public int Update(string storeName,object[] obj=null)
+        {
+            var entities = new List<T>();
+
+            //loai bo phan param
+            var store = storeName.Split(' ')[0];
+            _sqlCommand.CommandText = store;
+            _sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            string[] listparam = storeName.Split(' ');
+
+            int j = 0;
+            for (int i = 0; i < listparam.Length; i++)
+            {
+                if (listparam[i].Contains('@'))
+                {
+                    _sqlCommand.Parameters.AddWithValue(listparam[i].TrimStart('@'), obj[j]);
+                    j++;
                 }
 
             }

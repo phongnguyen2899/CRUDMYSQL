@@ -152,8 +152,10 @@
     var idtarget;
 
 
-    function LoadEmployee() {
-        var url = 'http://localhost:37919/api/Employee/GetAll';
+    function LoadEmployee(pageindex) {
+
+        pageTarget = pageindex
+        var url = 'http://localhost:37919/api/Employee/Page/'+pageindex+'';
         var body = document.getElementById('tablebody');
         var html = "";
         fetch(url)
@@ -185,7 +187,7 @@
                 endLoadding();
             })
     }
-    LoadEmployee();
+    LoadEmployee(1);
 
     function LoadPosition() {
         var html = "";
@@ -357,19 +359,146 @@
 
 
 
+    function LoadPaging() {
+        var html = "";
+        if (pageTarget == 1) {
+            html += `<li id="prev" class="page-item disabled">
+                                <span class="page-link">Previous</span>
+                            </li>`;
+        }
+        else {
+            html += `<li id="prev" class="page-item">
+                                <span class="page-link">Previous</span>
+                            </li>`;
+        }
+
+        html += `<li class="page-item"><a class="page-link" href="#">1</a></li>`;
+
+        html += `<li id="prev1" class="page-item"><a class="page-link" href="#">${pageTarget + 1}</a></li>`
+        html += `<li id="mid" class="page-item"><a class="page-link" href="#">${pageTarget + 2}</a></li>`
+        html += `<li class="page-item"><a class="page-link" href="#">${pageTarget + 3}</a></li>`
+        html += `<li class="page-item"><a class="page-link" href="#">${pageTarget + 4}</a></li>`
+
+
+        html += `<li id="pagelast" class="page-item"><a class="page-link" href="#">${pageEnd}</a></li>`;
+        if (pageTarget == pageEnd) {
+            html += `<li class="page-item disabled">
+                                <a class="page-link" href="#">Next</a>
+                            </li>`
+        }
+        else {
+            html += `<li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>`
+        }
+        pageElement.innerHTML = html
+    }
+
     //paging
 
     var totalRecord;
+    const pagesiez = 1;
+    var pageEnd;
+    var pageTarget = 1;
+    var pageElement = document.getElementsByClassName('pagination')[0];
+
     function GetcountRecord() {
+        var html = '';
         fetch('http://localhost:37919/api/Employee/GetCount')
             .then(response => response.json())
             .then(data => {
                 console.log(data.data)
                 totalRecord = data.data;
+                $('#pagelast').attr('href', "")
+                pageEnd = Math.floor(totalRecord / pagesiez)
+
+                console.log(pageEnd)
+
+                if (pageTarget == 1) {
+                    html += `<li id="prev" class="page-item disabled">
+                                <span class="page-link">Previous</span>
+                            </li>`;
+                }
+                else {
+                    html += `<li id="prev" class="page-item">
+                                <span class="page-link">Previous</span>
+                            </li>`;
+                }
+
+                html += `<li class="page-item"><a class="page-link" href="#">1</a></li>`;
+
+                html += `<li class="page-item"><a id="prev1" class="page-link" href="#">${pageTarget + 1}</a></li>`
+                html += `<li class="page-item"><a id="mid" class="page-link" href="#">${pageTarget + 2}</a></li>`
+                html += `<li class="page-item"><a id="next1" class="page-link" href="#">${pageTarget + 3}</a></li>`
+
+
+                html += `<li id="pagelast" class="page-item"><a class="page-link" href="#">${pageEnd}</a></li>`;
+                if (pageTarget == pageEnd) {
+                    html += `<li class="page-item disabled">
+                                <a class="page-link" href="#">Next</a>
+                            </li>`
+                }
+                else {
+                    html += `<li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                            </li>`
+                }
+                pageElement.innerHTML = html
+
+                
+                CallPageing();
+
             })
     }
     GetcountRecord();
 
+    function CallPageing() {
+
+        document.querySelectorAll('.page-item').forEach(item => {
+            item.addEventListener('click', event => {
+                LoadEmployee(item.textContent);
+                console.log(pageTarget)
+                var pageItem = document.getElementsByClassName('page-item')
+                for (var i = 0; i < pageItem.length; i++) {
+                    pageItem[i].classList.remove("active");
+                    if (pageItem[i].textContent == pageTarget) {
+                        pageItem[i].classList.add('active')
+                    }
+                }
+               
+                $('#prev1').text(parseInt(pageTarget-1))
+                $('#mid').text(parseInt(pageTarget))
+                $('#next1').text(parseInt(pageTarget + 1))
+
+            })
+        })
+        
+    }
+
 
 
 </script>
+<!--
+<nav aria-label="...">
+    <ul class="pagination">
+        <li class="page-item disabled">
+            <span class="page-link">Previous</span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item active">
+            <span class="page-link">
+                4
+                <span class="sr-only">(current)</span>
+            </span>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">5</a></li>
+        <li class="page-item"><a class="page-link" href="#">6</a></li>
+        <li id="pagelast" class="page-item"><a class="page-link" href="#">7</a></li>
+        <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+        </li>
+    </ul>
+</nav>
+    -->

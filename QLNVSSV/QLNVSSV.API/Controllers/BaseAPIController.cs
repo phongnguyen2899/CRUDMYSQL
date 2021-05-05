@@ -14,6 +14,8 @@ namespace QLNVSSV.API.Controllers
     [ApiController]
     public class BaseAPIController<T> : ControllerBase
     {
+        const int pagesize = 1;
+
         protected readonly IBaseRepository<T> _baseRepository;
         public BaseAPIController(IBaseRepository<T> baseRepository)
         {
@@ -24,6 +26,7 @@ namespace QLNVSSV.API.Controllers
         public IActionResult Get(int id)
         {
             var data = _baseRepository.GetById(id);
+
             return Ok(data);
         }
 
@@ -31,6 +34,7 @@ namespace QLNVSSV.API.Controllers
         public IActionResult GetAll()
         {
             var data = _baseRepository.Get();
+
             return Ok(data);
         }
 
@@ -45,6 +49,7 @@ namespace QLNVSSV.API.Controllers
         public IActionResult Delete(int id)
         {
             var result = _baseRepository.Delete(id);
+
             return Ok(result);
         }
 
@@ -53,6 +58,7 @@ namespace QLNVSSV.API.Controllers
          {
 
             var serviceResponse= _baseRepository.Update(Entity);
+
             return Ok(serviceResponse);
          }
 
@@ -61,8 +67,16 @@ namespace QLNVSSV.API.Controllers
         public IActionResult GetCountRecord()
         {
             var serviceResponse = _baseRepository.GetCountRecord();
+
             return Ok(serviceResponse);
         }
         
+        [HttpGet("Page/{pageindex}")]
+        public IActionResult GetPaging(int pageindex)
+        {
+            var data = _baseRepository.GetPaging(pageindex,pagesize);
+
+            return Ok(data);
+        }
     }
 }

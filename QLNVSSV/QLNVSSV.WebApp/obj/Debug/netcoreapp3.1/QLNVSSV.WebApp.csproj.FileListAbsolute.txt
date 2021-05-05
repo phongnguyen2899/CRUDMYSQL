@@ -36,3 +36,11 @@ C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\obj\Debug\netcoreapp
 C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\obj\Debug\netcoreapp3.1\QLNVSSV.WebApp.csproj.CopyComplete
 C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Employee.cshtml.g.cs
+C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Approval.cshtml.g.cs
+C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\QLNVSSV.Models.dll
+C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\QLNVSSV.Models.pdb
+C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll

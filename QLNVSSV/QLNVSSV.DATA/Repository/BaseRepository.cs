@@ -28,6 +28,11 @@ namespace QLNVSSV.DATA.Repository
             return _databaseContext.GetById(id);
         }
 
+        public IEnumerable<T> GetByProc(string proc, object[] obj = null)
+        {
+            return _databaseContext.Get(proc, obj);
+        }
+
         public ServiceResponse GetCountRecord()
         {
             var serviceResponse = new ServiceResponse();
@@ -35,6 +40,11 @@ namespace QLNVSSV.DATA.Repository
             serviceResponse.Msg.Add("Thành công");
             serviceResponse.Data = _databaseContext.GetCountRecord();
             return serviceResponse;
+        }
+
+        public IEnumerable<T> GetPaging(int pageindex, int pagesize)
+        {
+            return _databaseContext.GetPageing(pageindex, pagesize);
         }
 
         public ServiceResponse Insert(T entity)
@@ -62,6 +72,15 @@ namespace QLNVSSV.DATA.Repository
                 serviceResponse.Success = true;
                 serviceResponse.Msg.Add("Thất bại");
             }
+            return serviceResponse;
+        }
+
+        public ServiceResponse Update(string storeName, object[] obj = null)
+        {
+            var serviceResponse = new ServiceResponse();
+            serviceResponse.Success = true;
+            serviceResponse.Msg.Add("Thành công");
+            serviceResponse.Data = _databaseContext.Update(storeName,obj);
             return serviceResponse;
         }
     }

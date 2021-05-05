@@ -8,7 +8,7 @@ namespace QLNVSSV.DATA.Interfaces
     public interface IDatabaseContext<T>
     {
         IEnumerable<T> Get();
-        IEnumerable<T> Get(string storeName);
+        IEnumerable<T> Get(string storeName,object[] obj=null);
         object Get(string storeName, string code);
         T GetById(object id);
         int Insert(T entity);
@@ -16,5 +16,7 @@ namespace QLNVSSV.DATA.Interfaces
         int DeleteById(object id);
         bool CheckDuplicate(T entity, PropertyInfo property, bool isAddNew);
         int GetCountRecord();
+        IEnumerable<T> GetPageing(int pageindex, int pagesize);
+        int Update(string storeName, object[] obj = null);
     }
 }

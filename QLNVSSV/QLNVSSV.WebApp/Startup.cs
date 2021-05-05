@@ -39,6 +39,7 @@ namespace QLNVSSV.WebApp
 
             app.UseStaticFiles();
 
+
             app.UseRouting();
 
             app.UseAuthorization();

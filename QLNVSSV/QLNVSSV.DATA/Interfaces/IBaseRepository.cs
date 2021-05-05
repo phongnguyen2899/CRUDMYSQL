@@ -15,5 +15,12 @@ namespace QLNVSSV.DATA.Interfaces
         ServiceResponse Update(T entity);
         int Delete(object id);
         ServiceResponse GetCountRecord();
+
+        IEnumerable<T> GetPaging(int pageindex, int pagesize);
+
+        IEnumerable<T> GetByProc(string proc,object[] obj=null);
+
+        ServiceResponse Update(string storeName,object[] obj=null);
+
     }
 }
