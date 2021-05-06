@@ -92,6 +92,7 @@ namespace QLNVSSV.DATA.Database
             return listInstance;
         }
 
+        //phan trang
         public IEnumerable<T> GetPageing(int pageindex,int pagesize)
         {
             var listInstance = new List<T>();
@@ -130,11 +131,13 @@ namespace QLNVSSV.DATA.Database
         public IEnumerable<T> Get(string storeName,object[] obj=null)
         {
             var entities = new List<T>();
-
+            _sqlCommand.Parameters.Clear();
             //loai bo phan param
             var store = storeName.Split(' ')[0];
             _sqlCommand.CommandText = store;
             _sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            if (_sqlConnection.State == System.Data.ConnectionState.Closed)
+                _sqlConnection.Open();
             string[] listparam= storeName.Split(' ');
 
             int j = 0;
@@ -163,7 +166,10 @@ namespace QLNVSSV.DATA.Database
                 }
                 entities.Add(entity);
             }
+            mySqlDataReader.Close();
+            _sqlConnection.Close();
             return entities;
+
         }
 
         public object Get(string storeName, string code)
@@ -174,6 +180,7 @@ namespace QLNVSSV.DATA.Database
         public T GetById(object id)
         {
             var className = typeof(T).Name;
+            _sqlCommand.Parameters.Clear();
             _sqlCommand.CommandText = $"Proc_Get{className}ById";
             _sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
             if (_sqlConnection.State == System.Data.ConnectionState.Closed)
@@ -206,10 +213,14 @@ namespace QLNVSSV.DATA.Database
                             propertyInfo.SetValue(instance, value);
                     }
                 }
+                mySqlDataReader.Close();
                 return instance;
             }
+            //khong the su dung 1 ket noi cho Datareader va ExecuteNonQuery
+            _sqlConnection.Close();
             return default;
         }
+
 
         public int GetCountRecord()
         {

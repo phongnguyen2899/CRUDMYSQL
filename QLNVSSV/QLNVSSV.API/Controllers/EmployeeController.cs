@@ -1,14 +1,9 @@
 ﻿using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QLNVSSV.DATA.Interfaces;
 using QLNVSSV.Models.Modes;
-using QLNVSSV.ViewModels.Common;
-using System;
-using System.Collections.Generic;
+using QLNVSSV.Models.ViewModel;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace QLNVSSV.API.Controllers
 {
@@ -27,13 +22,20 @@ namespace QLNVSSV.API.Controllers
             _hostingEnvironment = environment;
         }
 
-        [HttpGet("GetApproval")]
-        public IActionResult GetbyProc()
+
+
+        [HttpGet("GetEmployeeStatus/{status}")]
+        public IActionResult GetEmployeeStatus(int status)
         {
-            var proc = $"Proc_GetByStatus @status ";
-            const int status = 0;
-            var obj = new object[] {status};
-            var data = _baseRepository.GetByProc(proc, obj);
+            var data = _employeeRepository.GetEmployeebyStatus(status);
+
+            return Ok(data);
+        }
+
+        [HttpGet("GetEmployeeSendMail/{status}")]
+        public IActionResult GetEmployeeSendMail(int status)
+        {
+            var data = _employeeRepository.GetEmployeeSendMail(status);
 
             return Ok(data);
         }
@@ -41,14 +43,12 @@ namespace QLNVSSV.API.Controllers
         [HttpGet("UpdateStatus/{id}/{status}")]
         public IActionResult UpdateStatus(int id,int status)
         {
-            var proc = $"Proc_UpdateStatus @employeeId , @status ";
-            var obj = new object[] { id, status };
-            var result = _baseRepository.Update(proc, obj);
-            var test = new ServiceResponse();
+            var result = _employeeRepository.UpdateStatusEmployee(id, status);
 
             return Ok(result);
         }
         
+        [HttpGet("Dowloadfile/{pathfile}")]
         public FileResult Dowloadfile(string pathfile)
         {
             string path = Path.Combine(this._hostingEnvironment.WebRootPath, "Image/") + pathfile;
@@ -57,9 +57,19 @@ namespace QLNVSSV.API.Controllers
             return File(bytes, "application/pdf", pathfile);
         }
 
-        public IActionResult GetbyProcPost()
+
+        [HttpPost("GetbyfilterAproval")]
+        public IActionResult GetbyfilterAproval([FromBody]ApprovalFillterViewModel approvalFillterViewModel)
         {
-            return Ok();
+            var data = _employeeRepository.GetbyfilterAproval(approvalFillterViewModel);
+            return Ok(data);
+        }
+
+        [HttpPut("UpdateSolidarity")]
+        public IActionResult UpdateSolidarity([FromBody]UpdateSolidarityViewModel updateSolidarityViewModel)
+        {
+            var result = _employeeRepository.UpdateSolidarity(updateSolidarityViewModel.employeeId,updateSolidarityViewModel.solidarity,updateSolidarityViewModel.interviewtime);
+            return Ok(result);
         }
     }
 }

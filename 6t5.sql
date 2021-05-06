@@ -41,6 +41,16 @@ CREATE TABLE `employee` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `employee`
+--
+
+LOCK TABLES `employee` WRITE;
+/*!40000 ALTER TABLE `employee` DISABLE KEYS */;
+INSERT INTO `employee` VALUES (1,'Nguyễn Văn Phong','2011-03-13 02:53:50','Ly Nhan','0869690298',NULL,NULL,1,1),(3,'obama11','2011-03-13 02:53:50','Ly Nhan','342343','my@gmail.com',NULL,2,2),(4,'Nguyễn Văn phong','2011-03-13 02:53:50','Hà Nam','0869690298','hoan@gmail.com',NULL,3,3),(5,'Nguyễn Văn phong','2011-03-13 02:53:50','Hà Nam','0869690298','minh@gmail.com',NULL,4,1),(6,'Nguyễn Văn phong6','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,2,2),(7,'Nguyễn Văn phong7','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,1,3);
+/*!40000 ALTER TABLE `employee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `interview`
 --
 
@@ -65,6 +75,65 @@ CREATE TABLE `interview` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `interview`
+--
+
+LOCK TABLES `interview` WRITE;
+/*!40000 ALTER TABLE `interview` DISABLE KEYS */;
+INSERT INTO `interview` VALUES (1,'New Text Document.txt',0,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',0,6),(3,'lovce',0,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',1,6),(4,'',2,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',2,6),(5,'sample.pdf',3,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',2,6),(6,'Nguyễn Văn phong6',4,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',1,6),(7,'Nguyễn Văn phong7',3,'Hà Nam','2011-03-15 02:53:50',1,_binary '\0','11qd','dqwdqw',1,6);
+/*!40000 ALTER TABLE `interview` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `mailcontent`
+--
+
+DROP TABLE IF EXISTS `mailcontent`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `mailcontent` (
+  `Id` int NOT NULL,
+  `Title` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `Content` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `MailType` int DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mailcontent`
+--
+
+LOCK TABLES `mailcontent` WRITE;
+/*!40000 ALTER TABLE `mailcontent` DISABLE KEYS */;
+INSERT INTO `mailcontent` VALUES (1,'Saishunkan System Vietnam_Thư mời phỏng vấn','Chúng tôi là phụ trách nhân sự công ty Saishunkan System VietNam. Chúng tôi mời bạn đế phỏng vấn thực tập với công ty chúng tôi.',0),(2,'Saishunkan System Vietnam_Thư mời phỏng vấn - Vòng 2','Chúng tôi là phụ trách nhân sự công ty Saishunkan System VietNam. Chúng tôi mời bạn đế phỏng vấn thực tập với công ty chúng tôi.',1),(3,'Saishunkan System Vietnam_Thư mời phỏng vấn','Chúng tôi là phụ trách nhân sự công ty Saishunkan System VietNam. Chúng tôi mời bạn đế phỏng vấn Fresher với công ty chúng tôi.',2),(4,'Saishunkan System Vietnam_Thư mời phỏng vấn - Vòng 2','Chúng tôi là phụ trách nhân sự công ty Saishunkan System VietNam. Chúng tôi mời bạn đế phỏng vấn Fresher với công ty chúng tôi.',3),(5,'Saishunkan System Vietnam_Thư mời phỏng vấn','Chúng tôi là phụ trách nhân sự công ty Saishunkan System VietNam. Chúng tôi mời bạn đế phỏng vấn Dev với công ty chúng tôi.',4),(6,'Saishunkan System Vietnam_Thư mời phỏng vấn - Vòng 2','Chúng tôi là phụ trách nhân sự công ty Saishunkan System VietNam. Chúng tôi mời bạn đế phỏng vấn Dev với công ty chúng tôi.',5);
+/*!40000 ALTER TABLE `mailcontent` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `mailcustom`
+--
+
+DROP TABLE IF EXISTS `mailcustom`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `mailcustom` (
+  `Tile` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `Content` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `EmployeeId` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `mailcustom`
+--
+
+LOCK TABLES `mailcustom` WRITE;
+/*!40000 ALTER TABLE `mailcustom` DISABLE KEYS */;
+/*!40000 ALTER TABLE `mailcustom` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `positions`
 --
 
@@ -79,6 +148,16 @@ CREATE TABLE `positions` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `positions`
+--
+
+LOCK TABLES `positions` WRITE;
+/*!40000 ALTER TABLE `positions` DISABLE KEYS */;
+INSERT INTO `positions` VALUES (1,'C#'),(2,'PHP'),(3,'JS'),(4,'Ruby'),(5,'Java'),(6,'C++'),(7,'C'),(8,'React');
+/*!40000 ALTER TABLE `positions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `title`
 --
 
@@ -91,6 +170,16 @@ CREATE TABLE `title` (
   PRIMARY KEY (`TitleId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `title`
+--
+
+LOCK TABLES `title` WRITE;
+/*!40000 ALTER TABLE `title` DISABLE KEYS */;
+INSERT INTO `title` VALUES (1,'TTS'),(2,'Fresher'),(3,'Dev');
+/*!40000 ALTER TABLE `title` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Dumping routines for database 'qlnv'
@@ -119,6 +208,36 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Proc_GetbyFilterApproval` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_GetbyFilterApproval`(
+	keyword nvarchar(250),
+    positionId int,
+    titleId int
+)
+BEGIN
+    select ee.EmployeeId,ee.EmployeeName,ee.DateOfBirth,ee.Address,ee.PhoneNumber,ee.Email,ee.Presenter,
+   Interview.CV,Interview.Status,Interview.Note,Interview.InterviewTime,Interview.TestScores,Interview.IsApply,Interview.Failure,Interview.InterviewAddress,Interview.Solidarity,Interview.InterviewerId,
+   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName
+   
+   from Employee ee inner join title on ee.TitleId=Title.TitleId inner join positions on 
+   positions.PositionId=ee.PositionId inner join Interview
+    on ee.EmployeeId=Interview.EmployeeId where ee.EmployeeName like concat('%',keyword,'%') 
+    and positions.PositionId=positionId and Title.TitleId=titleID and Interview.Status=0;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `Proc_GetByStatus` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -133,7 +252,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_GetByStatus`(status int)
 BEGIN
 select ee.EmployeeId,ee.EmployeeName,ee.DateOfBirth,ee.Address,ee.PhoneNumber,ee.Email,ee.Presenter,
    Interview.CV,Interview.Status,Interview.Note,Interview.InterviewTime,Interview.TestScores,Interview.IsApply,Interview.Failure,Interview.InterviewAddress,Interview.Solidarity,Interview.InterviewerId,
-   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName
+   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName,Interview.Solidarity
    
    from Employee ee inner join title on ee.TitleId=Title.TitleId inner join positions on 
    positions.PositionId=ee.PositionId inner join Interview
@@ -189,6 +308,55 @@ BEGIN
    positions.PositionId=ee.PositionId inner join Interview
     on ee.EmployeeId=Interview.EmployeeId 
     where ee.EmployeeId=Interview.EmployeeId and ee.EmployeeId=EmployeeId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Proc_GetEmployeeSendMail` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_GetEmployeeSendMail`(
+	status int
+)
+BEGIN
+select ee.EmployeeId,ee.EmployeeName,ee.DateOfBirth,ee.Address,ee.PhoneNumber,ee.Email,ee.Presenter,
+   Interview.CV,Interview.Status,Interview.Note,Interview.InterviewTime,Interview.TestScores,Interview.IsApply,Interview.Failure,Interview.InterviewAddress,Interview.Solidarity,Interview.InterviewerId,
+   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName,Interview.Solidarity,title.TitleId
+   
+   from Employee ee inner join title on ee.TitleId=Title.TitleId inner join positions on 
+   positions.PositionId=ee.PositionId inner join Interview
+    on ee.EmployeeId=Interview.EmployeeId where Interview.Status>status;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Proc_GetMailContentByType` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_GetMailContentByType`(
+	type int
+)
+BEGIN
+	select *from mailcontent
+    where mailcontent.MailType=type;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -354,6 +522,31 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Proc_UpdateSolidarity` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_UpdateSolidarity`(
+	employeeId int ,
+    solidarity int,
+    interviewtime datetime
+)
+BEGIN
+	update interview
+    set interview.Solidarity=solidarity,interview.InterviewTime=interviewtime
+    where interview.EmployeeId=employeeId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `Proc_UpdateStatus` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -388,4 +581,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-05 17:30:51
+-- Dump completed on 2021-05-06 17:32:02

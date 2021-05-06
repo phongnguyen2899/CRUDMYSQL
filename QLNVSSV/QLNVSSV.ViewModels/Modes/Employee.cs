@@ -28,5 +28,6 @@ namespace QLNVSSV.Models.Modes
         public string PresenterName { get; set; }
         public int PositionId { get; set; }
         public int TitleId { get; set; }
+        public int Solidarity { get; set; }
     }
 }

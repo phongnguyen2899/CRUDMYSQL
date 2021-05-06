@@ -18,6 +18,8 @@ namespace QLNVSSV.API
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
 
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+
+            services.AddScoped<IMailContentRepository, MailContentRepository>();
         }
     }
 }

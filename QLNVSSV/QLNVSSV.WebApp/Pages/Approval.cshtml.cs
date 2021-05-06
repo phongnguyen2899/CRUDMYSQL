@@ -1,15 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Newtonsoft.Json;
 using QLNVSSV.Models.Modes;
 using QLNVSSV.Models.ViewModel;
 using QLNVSSV.WebApp.ApiIntergration;
-using static System.Net.WebRequestMethods;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace QLNVSSV.WebApp.Pages
 {
@@ -20,15 +14,15 @@ namespace QLNVSSV.WebApp.Pages
         public List<Title> listTitle { get; set; }
         public void OnGet()
         {
-            employee = GetData<Employee>.GetList("http://localhost:37919/api/Employee/GetApproval");
-            listPositions= GetData<Positions>.GetList("http://localhost:37919/api/Position/GetAll");
-            listTitle=GetData<Title>.GetList("http://localhost:37919/api/Title/GetAll");
+            employee =ApiIntergration.GetData<Employee>.GetList("http://localhost:37919/api/Employee/GetEmployeeStatus/0");
+            listPositions= ApiIntergration.GetData<Positions>.GetList("http://localhost:37919/api/Position/GetAll");
+            listTitle= ApiIntergration.GetData<Title>.GetList("http://localhost:37919/api/Title/GetAll");
         }
-        public void OnPost(ApprovalFillterViewModel model)
+        public async Task  OnPost(ApprovalFillterViewModel model)
         {
-            employee = GetData<Employee>.GetList("http://localhost:37919/api/Employee/GetAll");
-            listTitle = GetData<Title>.GetList("http://localhost:37919/api/Title/GetAll");
-            listPositions = GetData<Positions>.GetList("http://localhost:37919/api/Position/GetAll");
+            employee = await ApiIntergration.GetData<Employee>.GetListPost("http://localhost:37919/api/Employee/GetbyfilterAproval", model);
+            listTitle = ApiIntergration.GetData<Title>.GetList("http://localhost:37919/api/Title/GetAll");
+            listPositions = ApiIntergration.GetData<Positions>.GetList("http://localhost:37919/api/Position/GetAll");
         }
         
     }

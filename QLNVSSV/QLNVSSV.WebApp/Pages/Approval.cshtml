@@ -124,7 +124,7 @@
 </div>
 
 
-<table class="table">
+<table class="table" style="margin-top:20px">
     <thead>
         <tr>
 
@@ -187,7 +187,7 @@
                         else
                         {
                             var a = item.CV.Split(".").Last();
-                            <a class="btn btn-outline-primary" title="Click để tải cv" href="Home/Dowloadfile/@item.CV">Tải CV</a>
+                            <a class="btn btn-outline-primary" title="Click để tải cv" href="http://localhost:37919/api/Employee/Dowloadfile/@item.CV">Tải CV</a>
                             <a onclick="updateStatus(@item.EmployeeId,2)" id="bntduyet_@item.EmployeeId" class="btn btn-outline-success">Duyệt</a>
                             <a onclick="updateStatus(@item.EmployeeId,1)" id="bntduyet_@item.EmployeeId" class="btn btn-outline-danger">Loại</a>
                         }

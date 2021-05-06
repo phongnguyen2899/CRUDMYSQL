@@ -44,3 +44,4 @@ C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp
 C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\QLNVSSV.Models.dll
 C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\QLNVSSV.Models.pdb
 C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\PhongNV\Documents\Phong\SSV\QLNVSSV\QLNVSSV.WebApp\obj\Debug\netcoreapp3.1\Razor\Pages\Sendmail.cshtml.g.cs
