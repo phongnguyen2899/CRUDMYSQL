@@ -209,19 +209,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\PhongNV\\.nuget\\packages\\": {}
+    "C:\\Users\\Phong\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj",
+      "projectUniqueName": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj",
       "projectName": "QLNVSSV.WebApp",
-      "projectPath": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj",
-      "packagesPath": "C:\\Users\\PhongNV\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.WebApp\\obj\\",
+      "projectPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj",
+      "packagesPath": "C:\\Users\\Phong\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.WebApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\PhongNV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Phong\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -235,8 +235,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj": {
-              "projectPath": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj"
+            "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj": {
+              "projectPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj"
             }
           }
         }
@@ -274,7 +274,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

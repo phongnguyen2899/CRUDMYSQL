@@ -26,8 +26,8 @@ namespace QLNVSSV.Client.Pages
 
         private async Task GetEmployee()
         {
-            listEmployee = await ApiIntergration.GetData<QLNVSSV.Models.Modes.Employee>.GetList($"http://localhost:37919/api/Employee/GetPaging?PageNumber={pageParameter.PageNumber}&pageSize={pageParameter.pageSize}");
-            MetaData = await ApiIntergration.GetDataFromHeader<MetaData>.GetData($"http://localhost:37919/api/Employee/GetPaging?PageNumber={pageParameter.PageNumber}&pageSize={pageParameter.pageSize}");
+            listEmployee = await ApiIntergration.GetData<QLNVSSV.Models.Modes.Employee>.GetList($"http://localhost:37919/api/Employee/GetPaging1?PageNumber={pageParameter.PageNumber}&pageSize={pageParameter.pageSize}");
+            MetaData = await ApiIntergration.GetDataFromHeader<MetaData>.GetData($"http://localhost:37919/api/Employee/GetPaging1?PageNumber={pageParameter.PageNumber}&pageSize={pageParameter.pageSize}");
         }
     }
 }

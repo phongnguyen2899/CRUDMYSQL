@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj": {}
+    "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj": {
+    "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj",
+        "projectUniqueName": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj",
         "projectName": "QLNVSSV.Models",
-        "projectPath": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj",
-        "packagesPath": "C:\\Users\\PhongNV\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.ViewModels\\obj\\",
+        "projectPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj",
+        "packagesPath": "C:\\Users\\Phong\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PhongNV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Phong\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -60,21 +60,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj": {
+    "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj",
+        "projectUniqueName": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj",
         "projectName": "QLNVSSV.WebApp",
-        "projectPath": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj",
-        "packagesPath": "C:\\Users\\PhongNV\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.WebApp\\obj\\",
+        "projectPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.WebApp\\QLNVSSV.WebApp.csproj",
+        "packagesPath": "C:\\Users\\Phong\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\PhongNV\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Phong\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -88,8 +88,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj": {
-                "projectPath": "C:\\Users\\PhongNV\\Documents\\Phong\\SSV\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj"
+              "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj": {
+                "projectPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj"
               }
             }
           }
@@ -127,7 +127,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

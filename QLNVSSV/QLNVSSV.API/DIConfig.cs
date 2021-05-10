@@ -2,6 +2,7 @@
 using QLNVSSV.DATA.Database;
 using QLNVSSV.DATA.Interfaces;
 using QLNVSSV.DATA.Repository;
+using QLNVSSV.DATA.Systems.User;
 
 namespace QLNVSSV.API
 {
@@ -16,6 +17,8 @@ namespace QLNVSSV.API
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
 
             services.AddScoped<IMailContentRepository, MailContentRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IUserService, UserService>();
         }
     }
 }

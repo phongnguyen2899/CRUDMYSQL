@@ -71,5 +71,7 @@ namespace QLNVSSV.DATA.Interfaces
         /// <param name="obj"></param>
         /// <returns></returns>
         int Update(string storeName, object[] obj = null);
+
+        T GetByIdProc(string storeName, object[] obj = null);
     }
 }

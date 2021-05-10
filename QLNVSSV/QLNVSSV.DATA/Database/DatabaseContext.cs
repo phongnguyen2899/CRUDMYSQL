@@ -19,6 +19,7 @@ namespace QLNVSSV.DATA.Database
             _sqlConnection.Open();
             _sqlCommand = _sqlConnection.CreateCommand();
             _sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            
         }
 
         public int DeleteById(object id)
@@ -326,6 +327,58 @@ namespace QLNVSSV.DATA.Database
             var affectRows = _sqlCommand.ExecuteNonQuery();
             _sqlConnection.Close();
             return affectRows;
+        }
+
+        public T GetByIdProc(string storeName, object[] obj = null)
+        {
+            _sqlCommand.Parameters.Clear();
+            //loai bo phan param
+            var store = storeName.Split(' ')[0];
+            _sqlCommand.CommandText = store;
+            _sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
+            if (_sqlConnection.State == System.Data.ConnectionState.Closed)
+                _sqlConnection.Open();
+            string[] listparam = storeName.Split(' ');
+
+            int j = 0;
+            for (int i = 0; i < listparam.Length; i++)
+            {
+                if (listparam[i].Contains('@'))
+                {
+                    _sqlCommand.Parameters.AddWithValue(listparam[i].TrimStart('@'), obj[j]);
+                    j++;
+                }
+
+            }
+
+            var instance = Activator.CreateInstance<T>();
+            
+            MySqlDataReader mySqlDataReader = _sqlCommand.ExecuteReader();
+           
+            while (mySqlDataReader.Read())
+            {
+                //lay thuoc tinh cua bang
+                for (int i = 0; i < mySqlDataReader.FieldCount; i++)
+                {
+                    var columnName = mySqlDataReader.GetName(i);
+                    var value = mySqlDataReader.GetValue(i);
+
+                    //get thuoc tinh cua object
+                    var propertyInfo = instance.GetType().GetProperty(columnName);
+
+
+                    if (propertyInfo != null && value != DBNull.Value)
+                    {
+                        if (propertyInfo.PropertyType == typeof(Boolean))
+                            propertyInfo.SetValue(instance, Convert.ToBoolean(value));
+                        else
+                            propertyInfo.SetValue(instance, value);
+                    }
+                }
+         
+                
+            }
+            return instance;
         }
     }
 }
