@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace QLNVSSV.Models.Modes
+﻿namespace QLNVSSV.Models.Modes
 {
     public class MailContent
     {

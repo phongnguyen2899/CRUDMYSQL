@@ -26,7 +26,7 @@
 </style>
 
 <button onclick="create()" type="button" class="btn btn-outline-primary">Thêm Mới</button>
-<table class="table">
+<table style="margin-top:20px" class="table">
     <thead>
         <tr>
 
@@ -176,7 +176,6 @@
                     html += '<td><a href="http://localhost:37919/Image/' + obj[i].cv + '">' + obj[i].cv + '</a></td >';
                     html += `<td>${obj[i].presenterName}</td>
                             <td>
-                                <button type="button" class="btn btn-outline-primary">Primary</button>
                                 <button id="delete_${obj[i].employeeId}" onclick=Delete(${obj[i].employeeId}) type="button" class="btn btn-outline-danger">Danger</button>
                                 <button  onclick="Momodal(${obj[i].employeeId})" type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#exampleModalCenter">Sửa</button>
                             </td>
@@ -300,9 +299,6 @@
 
     }
 
-
-
-
     function createItem() {
         console.log('create');
     }
@@ -396,23 +392,27 @@
 
     //paging
 
+
     var totalRecord;
-    const pagesiez = 1;
+    const pagesiez = 3;
     var pageEnd;
     var pageTarget = 1;
     var pageElement = document.getElementsByClassName('pagination')[0];
+
+    function render() {
+        return new Promise()
+    }
 
     function GetcountRecord() {
         var html = '';
         fetch('http://localhost:37919/api/Employee/GetCount')
             .then(response => response.json())
             .then(data => {
-                console.log(data.data)
                 totalRecord = data.data;
                 $('#pagelast').attr('href', "")
-                pageEnd = Math.floor(totalRecord / pagesiez)
+                pageEnd = Math.floor(totalRecord / pagesiez)+1
 
-                console.log(pageEnd)
+
 
                 if (pageTarget == 1) {
                     html += `<li id="prev" class="page-item disabled">
@@ -427,9 +427,31 @@
 
                 html += `<li class="page-item"><a class="page-link" href="#">1</a></li>`;
 
-                html += `<li class="page-item"><a id="prev1" class="page-link" href="#">${pageTarget + 1}</a></li>`
-                html += `<li class="page-item"><a id="mid" class="page-link" href="#">${pageTarget + 2}</a></li>`
-                html += `<li class="page-item"><a id="next1" class="page-link" href="#">${pageTarget + 3}</a></li>`
+                if (pageTarget < 5 && pageEnd>5) {
+
+                    html += `<li class="page-item"><a class="page-link" href="#">2</a></li>`;
+                    html += `<li class="page-item"><a class="page-link" href="#">3</a></li>`;
+                    html += `<li class="page-item"><a class="page-link" href="#">4</a></li>`;
+                    html += `<li class="page-item"><a class="page-link" href="#">5</a></li>`;
+                }
+                else if (pageEnd < 5) {
+                    for (var i = 2; i < pageEnd; i++) {
+                        html += `<li class="page-item"><a class="page-link" href="#">${i}</a></li>`;
+                    }
+                }
+                else if (pageTarget >= pageEnd - 4) {
+                    html += `<li class="page-item"><a class="page-link" href="#">${pageEnd - 4}</a></li>`;
+                    html += `<li class="page-item"><a class="page-link" href="#">${pageEnd - 3}</a></li>`;
+                    html += `<li class="page-item"><a class="page-link" href="#">${pageEnd - 2}</a></li>`;
+                    html += `<li class="page-item"><a class="page-link" href="#">${pageEnd-1}</a></li>`;
+                }
+                else {
+                    html += `<li class="page-item"><a class="page-link" href="#">${(parseInt(pageTarget) - 2)}</a></li>`;
+                    html += `<li class="page-item"><a class="page-link" href="#">${(parseInt(pageTarget) - 1)}</a></li>`;
+                    html += `<li class="page-item active"><a active class="page-link" href="#">${(parseInt(pageTarget) )}</a></li>`;
+                    html += `<li class="page-item"><a class="page-link" href="#">${(parseInt(pageTarget) + 1)}</a></li>`;
+                    html += `<li class="page-item"><a class="page-link" href="#">${(parseInt(pageTarget) + 2)}</a></li>`;
+                }
 
 
                 html += `<li id="pagelast" class="page-item"><a class="page-link" href="#">${pageEnd}</a></li>`;
@@ -444,8 +466,13 @@
                             </li>`
                 }
                 pageElement.innerHTML = html
-
-                
+                var pageItem = document.getElementsByClassName('page-item')
+                for (var i = 0; i < pageItem.length; i++) {
+                    pageItem[i].classList.remove("active");
+                    if (pageItem[i].textContent == pageTarget) {
+                        pageItem[i].classList.add('active')
+                    }
+                }
                 CallPageing();
 
             })
@@ -458,18 +485,12 @@
             item.addEventListener('click', event => {
                 LoadEmployee(item.textContent);
                 console.log(pageTarget)
-                var pageItem = document.getElementsByClassName('page-item')
-                for (var i = 0; i < pageItem.length; i++) {
-                    pageItem[i].classList.remove("active");
-                    if (pageItem[i].textContent == pageTarget) {
-                        pageItem[i].classList.add('active')
-                    }
-                }
+                
                
-                $('#prev1').text(parseInt(pageTarget-1))
-                $('#mid').text(parseInt(pageTarget))
-                $('#next1').text(parseInt(pageTarget + 1))
-
+                $('#prev1').text(parseInt(parseInt(pageTarget) - 1))
+                $('#mid').text(parseInt(parseInt(pageTarget)))
+                $('#next1').text(parseInt(parseInt(pageTarget) + 1))
+                GetcountRecord();
             })
         })
         

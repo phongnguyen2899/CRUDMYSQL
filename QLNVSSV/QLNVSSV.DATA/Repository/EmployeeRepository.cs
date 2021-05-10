@@ -1,11 +1,12 @@
-﻿using QLNVSSV.DATA.Database;
+﻿using QLNVSSV.Client.Model;
 using QLNVSSV.DATA.Interfaces;
+using QLNVSSV.DATA.Paging;
 using QLNVSSV.Models.Modes;
 using QLNVSSV.Models.ViewModel;
 using QLNVSSV.ViewModels.Common;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 
 namespace QLNVSSV.DATA.Repository
 {
@@ -16,8 +17,6 @@ namespace QLNVSSV.DATA.Repository
         {
             _databaseContextuc = databaseContextuc;
         }
-
-
 
         /// <summary>
         /// lay danh sach employee theo trang thai cv
@@ -39,17 +38,14 @@ namespace QLNVSSV.DATA.Repository
         /// <param name="id"></param>
         /// <param name="status"></param>
         /// <returns></returns>
-        public ServiceResponse UpdateStatusEmployee(int id, int status)
+        public ServiceResponse UpdateStatusEmployee(int employeeId, int status)
         {
             var procUpdateStatus = $"Proc_UpdateStatus @employeeId , @status ";
-            var param = new object[] { id, status };
+            var param = new object[] { employeeId, status };
             var result = base.Update(procUpdateStatus, param);
 
             return result;
         }
-
-
-
 
         public IEnumerable<Employee> GetbyfilterAproval(ApprovalFillterViewModel approvalFillterViewModel)
         {
@@ -65,7 +61,7 @@ namespace QLNVSSV.DATA.Repository
             return base.GetByProc(procFilterApproval, param);
         }
 
-        public ServiceResponse UpdateSolidarity(int id, int solidarity,DateTime interviewtime)
+        public ServiceResponse UpdateSolidarity(int employeeId, int solidarity,DateTime interviewtime)
         {
             if (solidarity > 2 || solidarity < 0)
             {
@@ -75,10 +71,28 @@ namespace QLNVSSV.DATA.Repository
                 return serviceResponse;
             }
             var procUpdateSolidarity = $"Proc_UpdateSolidarity @employeeId , @solidarity , @interviewtime ";
-            var param = new object[] { id, solidarity,interviewtime };
+            var param = new object[] { employeeId, solidarity,interviewtime };
             var result = base.Update(procUpdateSolidarity, param);
 
             return result;
+        }
+
+        public ServiceResponse UpdateSchedule(UpdateScheduleViewModel updateScheduleViewModel)
+        {
+            var procUpdateSolidarity = $"Proc_UpdateSchedule @employeeId , @inter , @interviewTime , @interviewAddress ";
+            var param = new object[] { updateScheduleViewModel.EmployeeId,updateScheduleViewModel.InterviewerId,updateScheduleViewModel.InterviewTime,updateScheduleViewModel.InterviewAddress };
+            var result = base.Update(procUpdateSolidarity, param);
+            return result;
+        }
+
+        public override PagedList<Employee> GetPaged(PageParameters parameters)
+        {
+            var data = _databaseContext.Get();
+            if (parameters != null)
+            {
+               data = data.Where(x => x.EmployeeName.Contains(""+parameters.Search+""));
+            }
+            return PagedList<Employee>.ToPagedList(data, parameters.PageNumber, parameters.pageSize);
         }
     }
 }

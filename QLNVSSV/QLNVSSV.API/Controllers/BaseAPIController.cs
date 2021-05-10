@@ -1,11 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using QLNVSSV.Client.Model;
 using QLNVSSV.DATA.Interfaces;
-using QLNVSSV.DATA.Repository;
-using QLNVSSV.Models.Modes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace QLNVSSV.API.Controllers
@@ -14,7 +11,7 @@ namespace QLNVSSV.API.Controllers
     [ApiController]
     public class BaseAPIController<T> : ControllerBase
     {
-        const int pagesize = 1;
+        const int pagesize = 3;
 
         protected readonly IBaseRepository<T> _baseRepository;
         public BaseAPIController(IBaseRepository<T> baseRepository)
@@ -34,6 +31,7 @@ namespace QLNVSSV.API.Controllers
         public IActionResult GetAll()
         {
             var data = _baseRepository.Get();
+
 
             return Ok(data);
         }
@@ -76,6 +74,14 @@ namespace QLNVSSV.API.Controllers
         {
             var data = _baseRepository.GetPaging(pageindex,pagesize);
 
+            return Ok(data);
+        }
+
+        [HttpGet("GetPaging")]
+        public virtual  IActionResult GetPage([FromQuery]PageParameters parameters)
+        {
+            var data = _baseRepository.GetPaged(parameters);
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(data.MetaData));
             return Ok(data);
         }
     }

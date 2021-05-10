@@ -3,7 +3,6 @@ using QLNVSSV.DATA.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace QLNVSSV.DATA.Database
 {
@@ -20,11 +19,6 @@ namespace QLNVSSV.DATA.Database
             _sqlConnection.Open();
             _sqlCommand = _sqlConnection.CreateCommand();
             _sqlCommand.CommandType = System.Data.CommandType.StoredProcedure;
-        }
-
-        public bool CheckDuplicate(T entity, PropertyInfo property, bool isAddNew)
-        {
-            throw new NotImplementedException();
         }
 
         public int DeleteById(object id)

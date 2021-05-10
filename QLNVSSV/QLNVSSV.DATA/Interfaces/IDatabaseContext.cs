@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 
 namespace QLNVSSV.DATA.Interfaces
 {
@@ -53,14 +51,7 @@ namespace QLNVSSV.DATA.Interfaces
         /// <returns></returns>
         int DeleteById(object id);
 
-        /// <summary>
-        /// Check trung ban ghi cho position va title
-        /// </summary>
-        /// <param name="entity"></param>
-        /// <param name="property"></param>
-        /// <param name="isAddNew"></param>
-        /// <returns></returns>
-        bool CheckDuplicate(T entity, PropertyInfo property, bool isAddNew);
+
         /// <summary>
         /// Lay tong ban ghi
         /// </summary>

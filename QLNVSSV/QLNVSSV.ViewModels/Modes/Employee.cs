@@ -1,7 +1,5 @@
 ﻿using QLNVSSV.Models.Enum;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace QLNVSSV.Models.Modes
 {
@@ -29,5 +27,9 @@ namespace QLNVSSV.Models.Modes
         public int PositionId { get; set; }
         public int TitleId { get; set; }
         public int Solidarity { get; set; }
+
+        public int InterviewerId { get; set; }
+
+        public string InterviewName { get; set; }
     }
 }
