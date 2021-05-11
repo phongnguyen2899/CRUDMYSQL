@@ -1,6 +1,8 @@
 ﻿@page "/employee"
 <h3>Employee</h3>
 
+
+<button type="button" class="btn btn-outline-primary" @onclick="() => { ShowInfor(0); }">Thêm Mới</button>
 <table style="margin-top:20px" class="table">
     <thead>
         <tr>
@@ -30,11 +32,15 @@
                     <td scope="col">@item.Email</td>
                     <td scope="col">@item.CV</td>
                     <td scope="col">@item.PresenterName</td>
-                    <td scope="col">Hành động</td>
+                    <td scope="col">
+                        <button type="button" class="btn btn-outline-primary" @onclick="() => { ShowInfor(item.EmployeeId); }">Edit</button>
+                        <button type="button" class="btn btn-outline-danger" @onclick="()=>Delete(item.EmployeeId)" >Delete</button>
+                    </td>
                 </tr>
             }
         }
 
     </tbody>
 </table>
+<QLNVSSV.Client.Components.UpdateEdit @ref="Modal"></QLNVSSV.Client.Components.UpdateEdit>
 <QLNVSSV.Client.Components.Pagination SelectedPage="SelectedPage" MetaData="MetaData" Spread="3"></QLNVSSV.Client.Components.Pagination>

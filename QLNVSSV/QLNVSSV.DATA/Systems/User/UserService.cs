@@ -21,7 +21,7 @@ namespace QLNVSSV.DATA.Systems.User
         public AuthenticateResponse Authenticate(AuthenticateRequest model, string ip)
         {
             var user = _userRepository.Login(model.Username, model.Password);
-            if (user == null)
+            if (user.Id == 0)
             {
                 return null;
             }

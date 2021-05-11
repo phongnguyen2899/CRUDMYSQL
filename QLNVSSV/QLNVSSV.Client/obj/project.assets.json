@@ -35,6 +35,19 @@
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
         }
       },
+      "Microsoft.AspNetCore.Components.Authorization/5.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "5.0.5",
+          "Microsoft.AspNetCore.Components": "5.0.5"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Authorization.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Components.Forms/5.0.5": {
         "type": "package",
         "dependencies": {
@@ -80,6 +93,25 @@
         },
         "build": {
           "build/net5.0/Microsoft.AspNetCore.Components.WebAssembly.props": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication/5.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Authorization": "5.0.5",
+          "Microsoft.AspNetCore.Components.Web": "5.0.5"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
         }
       },
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer/5.0.5": {
@@ -398,6 +430,19 @@
           "buildTransitive/netstandard2.0/Microsoft.AspNetCore.Components.Analyzers.targets": {}
         }
       },
+      "Microsoft.AspNetCore.Components.Authorization/5.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authorization": "5.0.5",
+          "Microsoft.AspNetCore.Components": "5.0.5"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Authorization.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.Authorization.dll": {}
+        }
+      },
       "Microsoft.AspNetCore.Components.Forms/5.0.5": {
         "type": "package",
         "dependencies": {
@@ -443,6 +488,25 @@
         },
         "build": {
           "build/net5.0/Microsoft.AspNetCore.Components.WebAssembly.props": {}
+        }
+      },
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication/5.0.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Authorization": "5.0.5",
+          "Microsoft.AspNetCore.Components.Web": "5.0.5"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll": {}
+        },
+        "build": {
+          "buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props": {}
         }
       },
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer/5.0.5": {
@@ -779,6 +843,21 @@
         "microsoft.aspnetcore.components.analyzers.nuspec"
       ]
     },
+    "Microsoft.AspNetCore.Components.Authorization/5.0.5": {
+      "sha512": "w1qHJI01iklcZEQWq86PPbeM6mpiNs9HBttclei3uJFISJNRNf8Fuid15lIYIKW3RsMABrR/+RxYV2gDWXsmvw==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.authorization/5.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "lib/net5.0/Microsoft.AspNetCore.Components.Authorization.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Components.Authorization.xml",
+        "microsoft.aspnetcore.components.authorization.5.0.5.nupkg.sha512",
+        "microsoft.aspnetcore.components.authorization.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Components.Forms/5.0.5": {
       "sha512": "Kq5Zb30TkHMpTi7Ri6jgrNikFkAv7zFPW50m3iCXdY28eB7+z4VuSnuI+8y/c2LDAPsen3HXwqDMURfgDEYe8A==",
       "type": "package",
@@ -824,6 +903,26 @@
         "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.xml",
         "microsoft.aspnetcore.components.webassembly.5.0.5.nupkg.sha512",
         "microsoft.aspnetcore.components.webassembly.nuspec"
+      ]
+    },
+    "Microsoft.AspNetCore.Components.WebAssembly.Authentication/5.0.5": {
+      "sha512": "7WSttxkVPkJWdHvlxB6FzSTFMi0vQlSU37uTd5VwCZkuVKIPTptGVtZu8O1O7G1ACuRkGjQhzaMadkvjlO7Amg==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.components.webassembly.authentication/5.0.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props",
+        "buildTransitive/Microsoft.AspNetCore.Components.WebAssembly.Authentication.props",
+        "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Components.WebAssembly.Authentication.xml",
+        "microsoft.aspnetcore.components.webassembly.authentication.5.0.5.nupkg.sha512",
+        "microsoft.aspnetcore.components.webassembly.authentication.nuspec",
+        "staticwebassets/AuthenticationService.js"
       ]
     },
     "Microsoft.AspNetCore.Components.WebAssembly.DevServer/5.0.5": {
@@ -1337,6 +1436,7 @@
   "projectFileDependencyGroups": {
     "net5.0": [
       "Microsoft.AspNetCore.Components.WebAssembly >= 5.0.5",
+      "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 5.0.5",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 5.0.5",
       "Microsoft.AspNetCore.Http.Abstractions >= 2.2.0",
       "Newtonsoft.Json >= 13.0.1",
@@ -1345,19 +1445,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Phong\\.nuget\\packages\\": {}
+    "C:\\Users\\PhongNV\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.Client\\QLNVSSV.Client.csproj",
+      "projectUniqueName": "C:\\Users\\PhongNV\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.Client\\QLNVSSV.Client.csproj",
       "projectName": "QLNVSSV.Client",
-      "projectPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.Client\\QLNVSSV.Client.csproj",
-      "packagesPath": "C:\\Users\\Phong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.Client\\obj\\",
+      "projectPath": "C:\\Users\\PhongNV\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.Client\\QLNVSSV.Client.csproj",
+      "packagesPath": "C:\\Users\\PhongNV\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\PhongNV\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.Client\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Phong\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\PhongNV\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1371,8 +1471,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj": {
-              "projectPath": "C:\\Users\\Phong\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj"
+            "C:\\Users\\PhongNV\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj": {
+              "projectPath": "C:\\Users\\PhongNV\\Desktop\\CRUDMYSQL\\QLNVSSV\\QLNVSSV.ViewModels\\QLNVSSV.Models.csproj"
             }
           }
         }
@@ -1388,6 +1488,10 @@
         "targetAlias": "net5.0",
         "dependencies": {
           "Microsoft.AspNetCore.Components.WebAssembly": {
+            "target": "Package",
+            "version": "[5.0.5, )"
+          },
+          "Microsoft.AspNetCore.Components.WebAssembly.Authentication": {
             "target": "Package",
             "version": "[5.0.5, )"
           },
@@ -1422,7 +1526,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.browser-wasm",
-            "version": "[5.0.4, 5.0.4]"
+            "version": "[5.0.5, 5.0.5]"
           }
         ],
         "frameworkReferences": {
@@ -1430,7 +1534,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {

@@ -37,7 +37,7 @@ CREATE TABLE `employee` (
   KEY `fkngoai` (`PositionId`),
   CONSTRAINT `fk001` FOREIGN KEY (`TitleId`) REFERENCES `title` (`TitleId`),
   CONSTRAINT `fkngoai` FOREIGN KEY (`PositionId`) REFERENCES `positions` (`PositionId`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -46,7 +46,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'Nguyễn Văn Phong','2011-03-13 02:53:50','Ly Nhan','0869690298',NULL,NULL,1,1),(3,'obama11','2011-03-13 02:53:50','Ly Nhan','342343','my@gmail.com',NULL,2,2),(4,'Nguyễn Văn phong','2011-03-13 02:53:50','Hà Nam','0869690298','hoan@gmail.com',NULL,3,3),(5,'Nguyễn Văn phong','2011-03-13 02:53:50','Hà Nam','0869690298','minh@gmail.com',NULL,4,1),(6,'Nguyễn Văn phong6','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,2,2),(7,'Nguyễn Văn phong7','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,1,3);
+INSERT INTO `employee` VALUES (6,'Nguyễn Văn phong6','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,2,2),(7,'Nguyễn Văn phong7','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,1,3),(8,'phong8','2011-03-13 02:53:50','Hà Nam','0869690298','minh@gmail.com',NULL,1,2),(9,'pl','2011-03-13 02:53:50','Hà Nội','0869690298','minh@gmail.com',NULL,2,2),(11,'phong11','2011-03-13 02:53:50','Hà Nội','0869690298','minh@gmail.com',NULL,3,2);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +80,7 @@ CREATE TABLE `interview` (
 
 LOCK TABLES `interview` WRITE;
 /*!40000 ALTER TABLE `interview` DISABLE KEYS */;
-INSERT INTO `interview` VALUES (1,'New Text Document.txt',0,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',0,6),(3,'lovce',0,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',1,6),(4,'',2,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',2,6),(5,'sample.pdf',3,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',2,6),(6,'Nguyễn Văn phong6',4,'Hà Nam','2011-03-13 02:53:50',1,_binary '\0','11qd','dqwdqw',1,6),(7,'Nguyễn Văn phong7',3,'Hà Nam','2011-03-15 02:53:50',1,_binary '\0','11qd','dqwdqw',1,6);
+INSERT INTO `interview` VALUES (6,'Nguyễn Văn phong6',4,NULL,'2021-05-07 00:00:00',1,_binary '\0','11qd','HN',1,0),(7,'Nguyễn Văn phong7',13,'phong12 phỏng vấn','2021-05-06 00:00:00',1,_binary '\0','11qd','HN',1,12),(8,'Phong1',0,NULL,'2011-03-13 02:53:50',1,_binary '\0','11qd','HUE',1,NULL),(9,'Phong2',0,'Nguyễn Văn phong phỏng vấn','2011-03-13 02:53:50',1,_binary '\0','11qd','HN',1,5),(11,'Phong4',0,NULL,'2011-03-13 02:53:50',1,_binary '\0','11qd','HUE',1,NULL);
 /*!40000 ALTER TABLE `interview` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -158,6 +158,30 @@ INSERT INTO `positions` VALUES (1,'C#'),(2,'PHP'),(3,'JS'),(4,'Ruby'),(5,'Java')
 UNLOCK TABLES;
 
 --
+-- Table structure for table `role`
+--
+
+DROP TABLE IF EXISTS `role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `role` (
+  `Id` int NOT NULL,
+  `RoleName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `role`
+--
+
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES (1,'ADMIN'),(2,'MEMBER');
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `title`
 --
 
@@ -182,8 +206,86 @@ INSERT INTO `title` VALUES (1,'TTS'),(2,'Fresher'),(3,'Dev');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `Id` int NOT NULL,
+  `FirstName` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `LastName` varchar(250) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `UserName` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `Password` varchar(500) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user`
+--
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'Nguyen','Phong','admin','12345'),(2,'Nguyen','Luh','member','12345');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `userrole`
+--
+
+DROP TABLE IF EXISTS `userrole`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `userrole` (
+  `RoleId` int DEFAULT NULL,
+  `UserId` int DEFAULT NULL,
+  `Id` int NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `RoleId` (`RoleId`),
+  KEY `UserId` (`UserId`),
+  CONSTRAINT `userrole_ibfk_1` FOREIGN KEY (`RoleId`) REFERENCES `role` (`Id`),
+  CONSTRAINT `userrole_ibfk_2` FOREIGN KEY (`UserId`) REFERENCES `user` (`Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `userrole`
+--
+
+LOCK TABLES `userrole` WRITE;
+/*!40000 ALTER TABLE `userrole` DISABLE KEYS */;
+INSERT INTO `userrole` VALUES (1,1,1),(2,2,2);
+/*!40000 ALTER TABLE `userrole` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Dumping routines for database 'qlnv'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `Proc_CheckLogin` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_CheckLogin`(
+	username nvarchar(50),
+    password nvarchar(500)
+)
+BEGIN
+	select *from user where user.UserName=username and user.Password=password;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `Proc_DeleteEmployeeById` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -276,12 +378,12 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_GetEmployee`()
 BEGIN
 select ee.EmployeeId,ee.EmployeeName,ee.DateOfBirth,ee.Address,ee.PhoneNumber,ee.Email,ee.Presenter,
-   Interview.CV,Interview.Status,Interview.Note,Interview.InterviewTime,Interview.TestScores,Interview.IsApply,Interview.Failure,Interview.InterviewAddress,Interview.Solidarity,Interview.InterviewerId,
-   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName
+   ie.CV,ie.Status,ie.Note,ie.InterviewTime,ie.TestScores,ie.IsApply,ie.Failure,ie.InterviewAddress,ie.Solidarity,ie.InterviewerId,
+   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName,(select EmployeeName from Employee esub where esub.EmployeeId = ie.InterviewerId) as InterviewName
    
    from Employee ee inner join title on ee.TitleId=Title.TitleId inner join positions on 
-   positions.PositionId=ee.PositionId inner join Interview
-    on ee.EmployeeId=Interview.EmployeeId;
+   positions.PositionId=ee.PositionId inner join Interview ie
+    on ee.EmployeeId=ie.EmployeeId;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -330,7 +432,8 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_GetEmployeeSendMail`(
 BEGIN
 select ee.EmployeeId,ee.EmployeeName,ee.DateOfBirth,ee.Address,ee.PhoneNumber,ee.Email,ee.Presenter,
    Interview.CV,Interview.Status,Interview.Note,Interview.InterviewTime,Interview.TestScores,Interview.IsApply,Interview.Failure,Interview.InterviewAddress,Interview.Solidarity,Interview.InterviewerId,
-   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName,Interview.Solidarity,title.TitleId
+   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName,Interview.Solidarity,title.TitleId,
+   positions.PositionId
    
    from Employee ee inner join title on ee.TitleId=Title.TitleId inner join positions on 
    positions.PositionId=ee.PositionId inner join Interview
@@ -522,6 +625,35 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Proc_UpdateSchedule` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_UpdateSchedule`(
+	in employeeId int,
+        in inter int,
+    in interviewTime datetime,
+    in interviewAddress varchar(50)
+
+)
+BEGIN
+	select @name:=employee.EmployeeName from employee where employee.EmployeeId=inter;
+	update interview
+    set interview.InterviewerId=inter,interview.InterviewTime=interviewTime,interview.interviewAddress=interviewAddress,
+     interview.Note=concat(@name,' phỏng vấn')
+    where interview.EmployeeId=employeeId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `Proc_UpdateSolidarity` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -581,4 +713,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-06 17:32:02
+-- Dump completed on 2021-05-11 17:33:58

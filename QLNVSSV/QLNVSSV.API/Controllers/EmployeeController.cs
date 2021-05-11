@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 
 namespace QLNVSSV.API.Controllers
 {
+
+    
     [Route("api/[controller]")]
     [ApiController]
     public class EmployeeController : BaseAPIController<Employee>
@@ -18,14 +20,12 @@ namespace QLNVSSV.API.Controllers
 
         private readonly IEmployeeRepository _employeeRepository;
 
-
         public EmployeeController(IEmployeeRepository employeeRepository,IWebHostEnvironment environment,IBaseRepository<Employee> baseRepository):base(baseRepository)
         {
             _employeeRepository = employeeRepository;
             _hostingEnvironment = environment;
         }
 
-        
         /// <summary>
         /// Get employee by status
         /// </summary>

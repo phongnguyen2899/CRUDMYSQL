@@ -1,4 +1,6 @@
-﻿using QLNVSSV.Client.Model;
+﻿using Microsoft.AspNetCore.Components;
+using QLNVSSV.Client.Components;
+using QLNVSSV.Client.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +11,13 @@ namespace QLNVSSV.Client.Pages
 {
     public partial class Employee
     {
+        private UpdateEdit Modal { get; set; }
+
         public MetaData MetaData { get; set; } = new();
         private List<QLNVSSV.Models.Modes.Employee> listEmployee { get; set; } = new();
 
         private PageParameters pageParameter = new PageParameters() { PageNumber = 1,pageSize = 1};
+
         protected override async Task OnInitializedAsync()
         {
             await GetEmployee();
@@ -28,6 +33,23 @@ namespace QLNVSSV.Client.Pages
         {
             listEmployee = await ApiIntergration.GetData<QLNVSSV.Models.Modes.Employee>.GetList($"http://localhost:37919/api/Employee/GetPaging1?PageNumber={pageParameter.PageNumber}&pageSize={pageParameter.pageSize}");
             MetaData = await ApiIntergration.GetDataFromHeader<MetaData>.GetData($"http://localhost:37919/api/Employee/GetPaging1?PageNumber={pageParameter.PageNumber}&pageSize={pageParameter.pageSize}");
+        }
+
+        private void ModalOpen()
+        {
+            Modal.type = 1;
+            Modal.Open();
+        }
+
+        private void ShowInfor(int id)
+        {
+            Modal.Show(id);
+        }
+        private async Task Delete(int Id)
+        {
+            var url = $"http://localhost:37919/api/Employee/{Id}";
+             await ApiIntergration.GetData<int>.Delete(url,Id);
+            await GetEmployee();
         }
     }
 }

@@ -17,6 +17,10 @@ namespace QLNVSSV.Models.AuthenModel
         [JsonIgnore] // refresh token is returned in http only cookie
         public string RefreshToken { get; set; }
 
+        public AuthenticateResponse()
+        {
+
+        }
         public AuthenticateResponse(User user, string jwtToken, string refreshToken)
         {
             Id = user.Id;
