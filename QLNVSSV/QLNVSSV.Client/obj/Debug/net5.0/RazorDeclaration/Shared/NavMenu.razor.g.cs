@@ -90,7 +90,7 @@ using QLNVSSV.Client.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 33 "C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\Shared\NavMenu.razor"
+#line 49 "C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

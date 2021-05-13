@@ -200,13 +200,13 @@
       "mscorlib.dll": "sha256-aRw41w\/QxOqc3NzhbK7UKf1zT6z\/oHtp9BlXl4JWwjM=",
       "netstandard.dll": "sha256-stWPH7tpmfc4JFroiKGKWcPfLQ+ALD6yQUXA9NiV0fQ=",
       "System.Private.CoreLib.dll": "sha256-PbMTdb+kswRpFmuD8S4hY70nkZ9LeYJg7y3wm7hj0CQ=",
-      "QLNVSSV.Models.dll": "sha256-iPwyjRlaTFdsZlHm0kRqCIs6Oi8B\/2c8amlUO54bdOw=",
-      "QLNVSSV.Client.dll": "sha256-\/5b9bxWsH\/WJ7FrxlMDlBncM+5ahk+dOsLIEKu1y4GQ="
+      "QLNVSSV.Models.dll": "sha256-RD6Z9zAryHLIx0dju\/RKU+m1tnys\/KXPMvKCXRFRr88=",
+      "QLNVSSV.Client.dll": "sha256-WFvevETMqz+u5V9emlX4hYCfbKElAILrph8fo4KI8Z8="
     },
     "lazyAssembly": null,
     "pdb": {
-      "QLNVSSV.Models.pdb": "sha256-mOlscNSZ9iD1cd7wxawV5b80GYrk8A89f+TR5GQZTBU=",
-      "QLNVSSV.Client.pdb": "sha256-CIo6\/dPmvxdZ6zGpIMsHZlqNXi3dkk2hUrDoOJ74SgM="
+      "QLNVSSV.Models.pdb": "sha256-X84O2\/wc+72DRsyiRyf3zroKY\/r0MM0JscJBOTnohnE=",
+      "QLNVSSV.Client.pdb": "sha256-wfwjS2eoZfMk94Va2QPk40Q\/VFgykvwk+YLCfrXHweo="
     },
     "runtime": {
       "dotnet.timezones.blat": "sha256-SQvzbzBfueaAxSKIKE1khBH02NH2MJJaWDBav\/S5MSs=",

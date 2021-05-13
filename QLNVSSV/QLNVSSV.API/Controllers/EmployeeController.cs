@@ -52,7 +52,6 @@ namespace QLNVSSV.API.Controllers
 
             return Ok(data);
         }
-
         /// <summary>
         /// update status
         /// </summary>
@@ -123,6 +122,20 @@ namespace QLNVSSV.API.Controllers
             var data = _employeeRepository.GetPaged(parameters);
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(data.MetaData));
             return Ok(data);
+        }
+
+        [HttpPut("ChangeSolidarity")]
+        public IActionResult ChangeSolidarity([FromBody] ChangeSolidarityViewModel changeSolidarityViewModel)
+        {
+            var result = _employeeRepository.ChangeSolidarity(changeSolidarityViewModel.employeeId, changeSolidarityViewModel.solidirity);
+            return Ok(result);
+        }
+
+        [HttpPut("ChangeInterviewTime")]
+        public IActionResult ChangeInterviewTime([FromBody] ChangeInterviewTimeViewModel changeInterviewTimeView)
+        {
+            var result = _employeeRepository.ChangeInterviewTime(changeInterviewTimeView.employeeId,changeInterviewTimeView.interviewtime);
+            return Ok(result);
         }
     }
 }

@@ -69,6 +69,7 @@ namespace QLNVSSV.Client.Components
             
         }
 
+        
         public async void PostData()
         {
             Console.WriteLine(employee);
@@ -82,19 +83,19 @@ namespace QLNVSSV.Client.Components
                await ApiIntergration.GetData<Employee>.Put("http://localhost:37919/api/Employee",employee);
                 if (fileSelect != null)
                 {
-                    var fileInfo = await fileSelect.ReadFileInfoAsync();
-                    using (var ms = await fileSelect.CreateMemoryStreamAsync(4 * 1024))
-                    {
-                        var content = new MultipartFormDataContent();
-                        content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data");
-                        content.Add(new StreamContent(ms, Convert.ToInt32(ms.Length)), "image", fileInfo.Name);
-                        //ImgUrl = await Repository.UploadProductImage(content);
-                       // await OnChange.InvokeAsync(ImgUrl);
-                    }
+                    //var fileInfo = await fileSelect.ReadFileInfoAsync();
+                    //using (var ms = await fileSelect.CreateMemoryStreamAsync(4 * 1024))
+                    //{
+                    //    var content = new MultipartFormDataContent();
+                    //    content.Headers.ContentDisposition = new ContentDispositionHeaderValue("form-data");
+                    //    content.Add(new StreamContent(ms, Convert.ToInt32(ms.Length)), "image", fileInfo.Name);
+                    //    //ImgUrl = await Repository.UploadProductImage(content);
+                    //   // await OnChange.InvokeAsync(ImgUrl);
+                    //}
                 }
             }
         }
-
+        
         public void Save()
         {
             

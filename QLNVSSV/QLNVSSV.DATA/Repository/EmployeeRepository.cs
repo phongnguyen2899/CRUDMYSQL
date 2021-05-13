@@ -77,6 +77,8 @@ namespace QLNVSSV.DATA.Repository
             return result;
         }
 
+
+
         public ServiceResponse UpdateSchedule(UpdateScheduleViewModel updateScheduleViewModel)
         {
             var procUpdateSolidarity = $"Proc_UpdateSchedule @employeeId , @inter , @interviewTime , @interviewAddress ";
@@ -93,6 +95,36 @@ namespace QLNVSSV.DATA.Repository
                data = data.Where(x => x.EmployeeName.Contains(""+parameters.Search+""));
             }
             return PagedList<Employee>.ToPagedList(data, parameters.PageNumber, parameters.pageSize);
+        }
+
+        public ServiceResponse ChangeSolidarity(int employeeId, int solidarity)
+        {
+            if (solidarity > 2 || solidarity < 0)
+            {
+                var serviceResponse = new ServiceResponse();
+                serviceResponse.Success = false;
+                serviceResponse.Msg.Add("Thất bại");
+                return serviceResponse;
+            }
+            var procUpdateSolidarity = $"Proc_ChangeSolidarity @employeeId , @solidarity ";
+            var param = new object[] { employeeId, solidarity};
+            var result = base.Update(procUpdateSolidarity, param);
+
+            return result;
+        }
+
+        public ServiceResponse ChangeInterviewTime(int employeeId, DateTime interviewtime)
+        {
+            
+                var serviceResponse = new ServiceResponse();
+                serviceResponse.Success = false;
+                serviceResponse.Msg.Add("Thành Công");
+
+                var procUpdateSolidarity = $"Proc_ChangeInterviewtime @employeeId , @interviewtime ";
+                var param = new object[] { employeeId, interviewtime };
+                var result = base.Update(procUpdateSolidarity, param);
+
+            return result;
         }
     }
 }

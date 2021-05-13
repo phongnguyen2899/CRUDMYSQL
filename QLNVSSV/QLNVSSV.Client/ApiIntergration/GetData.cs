@@ -47,8 +47,6 @@ namespace QLNVSSV.Client.ApiIntergration
             return listdata;
         }
 
-
-
         public static async Task<T> GetById(string url)
         {
             var instance = Activator.CreateInstance<T>();

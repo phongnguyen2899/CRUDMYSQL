@@ -1963,3 +1963,17 @@ C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor
 C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor\Components\UpdateEdit.razor.g.cs
 C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\RazorDeclaration\Components\ImageUpload.razor.g.cs
 C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor\Components\ImageUpload.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Approval.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor\Pages\Approval.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\RazorDeclaration\Components\ViewCVModal.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor\Components\ViewCVModal.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\RazorDeclaration\Components\Filter.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor\Components\Filter.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\RazorDeclaration\Pages\Schedule.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor\Pages\Schedule.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\RazorDeclaration\Pages\SendMail.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor\Pages\SendMail.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\RazorDeclaration\Components\MailModal.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor\Components\MailModal.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\RazorDeclaration\Components\FilterCommon.razor.g.cs
+C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\obj\Debug\net5.0\Razor\Components\FilterCommon.razor.g.cs

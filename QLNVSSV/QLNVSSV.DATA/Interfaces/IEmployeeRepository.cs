@@ -18,6 +18,10 @@ namespace QLNVSSV.DATA.Interfaces
 
         ServiceResponse UpdateSolidarity(int employeeId, int solidarity,DateTime interviewtime);
 
+        ServiceResponse ChangeSolidarity(int employeeId, int solidarity);
+
+        ServiceResponse ChangeInterviewTime(int employeeId, DateTime interviewtime);
+
         ServiceResponse UpdateSchedule(UpdateScheduleViewModel updateScheduleViewModel);
     }
 }

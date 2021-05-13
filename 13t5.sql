@@ -46,7 +46,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (6,'Nguyễn Văn phong6','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,2,2),(7,'Nguyễn Văn phong7','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,1,3),(8,'phong8','2011-03-13 02:53:50','Hà Nam','0869690298','minh@gmail.com',NULL,1,2),(9,'pl','2011-03-13 02:53:50','Hà Nội','0869690298','minh@gmail.com',NULL,2,2),(11,'phong11','2011-03-13 02:53:50','Hà Nội','0869690298','minh@gmail.com',NULL,3,2);
+INSERT INTO `employee` VALUES (6,'Nguyễn Văn phong6','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,2,1),(7,'Nguyễn Văn phong7','2011-03-13 02:53:50','Hà Nam','0869690298','phong28999@gmail.com',NULL,1,3),(8,'phong8','2011-03-13 02:53:50','Hà Nam','0869690298','minh@gmail.com',NULL,1,2),(9,'pl','2011-03-13 02:53:50','Hà Nội','0869690298','minh@gmail.com',NULL,2,1),(11,'phong11','2011-03-13 02:53:50','Hà Nội','0869690298','minh@gmail.com',NULL,3,1);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -80,7 +80,7 @@ CREATE TABLE `interview` (
 
 LOCK TABLES `interview` WRITE;
 /*!40000 ALTER TABLE `interview` DISABLE KEYS */;
-INSERT INTO `interview` VALUES (6,'Nguyễn Văn phong6',4,NULL,'2021-05-07 00:00:00',1,_binary '\0','11qd','HN',1,0),(7,'Nguyễn Văn phong7',13,'phong12 phỏng vấn','2021-05-06 00:00:00',1,_binary '\0','11qd','HN',1,12),(8,'Phong1',0,NULL,'2011-03-13 02:53:50',1,_binary '\0','11qd','HUE',1,NULL),(9,'Phong2',0,'Nguyễn Văn phong phỏng vấn','2011-03-13 02:53:50',1,_binary '\0','11qd','HN',1,5),(11,'Phong4',0,NULL,'2011-03-13 02:53:50',1,_binary '\0','11qd','HUE',1,NULL);
+INSERT INTO `interview` VALUES (6,'New Text Document.txt',13,NULL,'2021-05-25 00:00:00',1,_binary '\0','11qd','HUE',2,0),(7,'New Text Document.txt',13,'phong12 phỏng vấn','2021-05-24 15:34:00',1,_binary '\0','11qd','HN',2,12),(8,'New Text Document.txt',2,NULL,'2011-03-13 02:53:50',1,_binary '\0','11qd','HUE',1,NULL),(9,'sample.pdf',2,'Nguyễn Văn phong7 phỏng vấn','2011-03-13 02:53:50',1,_binary '\0','11qd','HUE',2,7),(11,'New Text Document.txt',2,NULL,'2020-03-13 02:53:50',1,_binary '\0','11qd','HUE',0,7);
 /*!40000 ALTER TABLE `interview` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,6 +264,54 @@ UNLOCK TABLES;
 --
 -- Dumping routines for database 'qlnv'
 --
+/*!50003 DROP PROCEDURE IF EXISTS `Proc_ChangeInterviewtime` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_ChangeInterviewtime`(
+	employeeId int,
+    interviewtime Datetime
+)
+BEGIN
+	update interview
+    set interview.InterviewTime=interviewtime
+    where interview.EmployeeId=employeeId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `Proc_ChangeSolidarity` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_ChangeSolidarity`(
+	employeeId int ,
+    solidarity int
+)
+BEGIN
+	update interview
+    set interview.Solidarity=solidarity
+    where interview.EmployeeId=employeeId;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `Proc_CheckLogin` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -354,7 +402,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `Proc_GetByStatus`(status int)
 BEGIN
 select ee.EmployeeId,ee.EmployeeName,ee.DateOfBirth,ee.Address,ee.PhoneNumber,ee.Email,ee.Presenter,
    Interview.CV,Interview.Status,Interview.Note,Interview.InterviewTime,Interview.TestScores,Interview.IsApply,Interview.Failure,Interview.InterviewAddress,Interview.Solidarity,Interview.InterviewerId,
-   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName,Interview.Solidarity
+   Positions.PositionName,title.TitleName,(select EmployeeName from Employee esub where esub.EmployeeId = ee.Presenter) as PresenterName,Interview.Solidarity,ee.PositionId,ee.TitleId
    
    from Employee ee inner join title on ee.TitleId=Title.TitleId inner join positions on 
    positions.PositionId=ee.PositionId inner join Interview
@@ -713,4 +761,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-05-11 17:33:58
+-- Dump completed on 2021-05-13 17:42:35
