@@ -6,11 +6,15 @@ using System.Linq;
 using System.Net.Http;
 using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
+using AntDesign;
 
 namespace QLNVSSV.Client.Pages
 {
     public partial class Approval
     {
+        public bool loading { get; set; } = false;
+        void toggle(bool value) => loading = value;
+        private UpdateEdit Modal { get; set; }
         public int eID { get; set; }
         public List<QLNVSSV.Models.Modes.Employee> listEmployee { get; set; } = new();
 
@@ -21,7 +25,9 @@ namespace QLNVSSV.Client.Pages
 
         public async Task GetData()
         {
+            toggle(true);
             listEmployee = await ApiIntergration.GetData<QLNVSSV.Models.Modes.Employee>.GetList("http://localhost:37919/api/Employee/GetEmployeeStatus/0");
+            toggle(false);
         }
         public async Task Reload()
         {
@@ -63,7 +69,18 @@ namespace QLNVSSV.Client.Pages
                 }
             }
 
-           await GetData();
+            await NoticeWithIcon(NotificationType.Success);
+            await GetData();
+        }
+
+        private async Task NoticeWithIcon(NotificationType type)
+        {
+            await _notice.Open(new NotificationConfig()
+            {
+                Message = "Duyệt thành công",
+                Description = "",
+                NotificationType = type
+            });
         }
     }
 }

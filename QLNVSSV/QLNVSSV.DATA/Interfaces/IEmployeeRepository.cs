@@ -1,4 +1,6 @@
-﻿using QLNVSSV.Models.Modes;
+﻿using QLNVSSV.Client.Model;
+using QLNVSSV.DATA.Paging;
+using QLNVSSV.Models.Modes;
 using QLNVSSV.Models.ViewModel;
 using QLNVSSV.ViewModels.Common;
 using System;
@@ -23,5 +25,7 @@ namespace QLNVSSV.DATA.Interfaces
         ServiceResponse ChangeInterviewTime(int employeeId, DateTime interviewtime);
 
         ServiceResponse UpdateSchedule(UpdateScheduleViewModel updateScheduleViewModel);
+
+        PagedList<Employee> GetPaged_Status(int status, PageParameters parameters);
     }
 }

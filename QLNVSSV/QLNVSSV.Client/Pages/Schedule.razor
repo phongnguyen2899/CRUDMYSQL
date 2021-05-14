@@ -1,7 +1,7 @@
 ﻿@page "/Schedule"
 <h3>Schedule</h3>
 
-<QLNVSSV.Client.Components.FilterCommon></QLNVSSV.Client.Components.FilterCommon>
+<QLNVSSV.Client.Components.FilterCommon SearchCallback="LoadDataCalBack"></QLNVSSV.Client.Components.FilterCommon>
 <table style="margin-top:20px" class="table">
     <thead>
         <tr>
@@ -48,6 +48,7 @@
     </tbody>
 </table>
 
+<QLNVSSV.Client.Components.Pagination SelectedPage="SelectedPage" MetaData="MetaData" Spread="3"></QLNVSSV.Client.Components.Pagination>
 
 <div class="modal fade @ModalClass" style="display:@DissplayModal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">

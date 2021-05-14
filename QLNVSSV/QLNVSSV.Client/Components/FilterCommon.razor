@@ -1,22 +1,10 @@
 ﻿
 
 <style>
-
-
-
-
-
-
-
-
     .header {
         display: flex;
         justify-content: space-between;
     }
-
-
-
-
 
     .header {
         margin-top: 10px;
@@ -28,7 +16,6 @@
     .search_header {
         display: flex;
     }
-
         .search_header .btn_search {
             background-color: #4e92df;
             border: none;
@@ -82,10 +69,10 @@
     }
 </style>
 <div style="height:200px;margin-top:20px;">
-    <form method="post">
+    <EditForm Model="pageParameters" OnSubmit="SearchAction">
         <div class="form-search">
             <div class="form-group">
-                <input type="text" name="EmployeeName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên nhân viên">
+                <input @bind-value="pageParameters.Search" type="text" name="EmployeeName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nhập tên nhân viên">
             </div>
 
             <button style="height:38px;" type="submit" class="btn btn-success">Tìm kiếm nâng cao</button>
@@ -96,7 +83,7 @@
         <div class="form-search">
             <div class="form-group">
                 <label for="exampleInputEmail1">Vị trí</label>
-                <select class="form-control" name="Position">
+                <select class="form-control" name="Position" @bind="pageParameters.position">
                     <option value="0">Chọn vị trí</option>
                     @foreach (var item in listPosition)
                     {
@@ -106,7 +93,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Chức danh</label>
-                <select class="form-control" name="Title">
+                <select class="form-control" name="Title" @bind="pageParameters.title">
                     <option value="0">Chọn chức vụ</option>
                     @foreach (var item in listTitle)
                     {
@@ -116,7 +103,7 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Liên hệ</label>
-                <select class="form-control" name="Soliratity">
+                <select class="form-control" name="Soliratity" @bind="pageParameters.solidarity">
                     <option value="0">Chưa liên hệ</option>
                     <option value="1">Liên hệ được</option>
                     <option value="2">Không liên hệ được</option>
@@ -124,16 +111,15 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Từ</label>
-                <input type="date" class="form-control" id="exampleInputPassword1" name="Start">
+                <input type="date" class="form-control" id="exampleInputPassword1" name="Start" @bind="pageParameters.from">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Đến</label>
-                <input type="date" class="form-control" id="exampleInputPassword1" name="End">
+                <input type="date" class="form-control" id="exampleInputPassword1" name="End" @bind="pageParameters.to">
             </div>
             <div class="form-group">
                 <label for="exampleInputPassword1">Địa điểm</label>
-                <select class="form-control" name="InterviewAddress">
-                    <option></option>
+                <select class="form-control" name="InterviewAddress" @bind="pageParameters.interviewaddress">
                     <option value="HN">Hà Nội</option>
                     <option value="HUE">Huế</option>
                 </select>
@@ -143,7 +129,7 @@
         <button type="submit" class="btn btn-success">Tìm kiếm</button>
         <button id="reset" type="button" class="btn btn-success">Đặt lại</button>
 
-    </form>
+    </EditForm>
 
 </div>
 

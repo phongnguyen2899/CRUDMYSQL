@@ -1,9 +1,9 @@
 ﻿
-
+@inject NotificationService _notice
 
 <div class="modal fade @ModalClass" style="display:@DissplayModal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div style="max-width:50% !important" class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
+    <div style="max-width:50% !important;height:100%" class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content" style="height:80%;">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close" @onclick="Close">
@@ -58,6 +58,7 @@
 
     public async Task UpdateStatus(int status)
     {
+
         string url = $"http://localhost:37919/api/Employee/UpdateStatus/{EmployeeId}/{status}";
         using (var client = new HttpClient())
         {
@@ -68,7 +69,19 @@
             }
         }
         Close();
+        await NoticeWithIcon(NotificationType.Success);
+
         Reload.InvokeAsync();
+    }
+
+    private async Task NoticeWithIcon(NotificationType type)
+    {
+        await _notice.Open(new NotificationConfig()
+        {
+            Message = "Duyệt thành công",
+            Description = "",
+            NotificationType = type
+        });
     }
 
 }

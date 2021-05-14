@@ -82,6 +82,13 @@ using QLNVSSV.Client.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\_Imports.razor"
+using AntDesign;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/sendmail")]
     public partial class SendMail : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -90,6 +97,7 @@ using QLNVSSV.Client.Shared;
         {
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NotificationService _notice { get; set; }
     }
 }
 #pragma warning restore 1591

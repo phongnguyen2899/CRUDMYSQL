@@ -12,5 +12,12 @@ namespace QLNVSSV.Client.Model
         public int pageSize { get; set; }
 
         public string Search { get; set; }
+
+        public int position { get; set; }
+        public int title { get; set; }
+        public int solidarity { get; set; }
+        public DateTime? from { get; set; } = null;
+        public DateTime? to { get; set; } = null;
+        public string interviewaddress { get; set; }
     }
 }

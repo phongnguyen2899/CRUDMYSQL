@@ -82,6 +82,13 @@ using QLNVSSV.Client.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\_Imports.razor"
+using AntDesign;
+
+#line default
+#line hidden
+#nullable disable
     public partial class ViewCVModal : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -127,6 +134,7 @@ using QLNVSSV.Client.Shared;
 
     public async Task UpdateStatus(int status)
     {
+
         string url = $"http://localhost:37919/api/Employee/UpdateStatus/{EmployeeId}/{status}";
         using (var client = new HttpClient())
         {
@@ -137,13 +145,26 @@ using QLNVSSV.Client.Shared;
             }
         }
         Close();
+        await NoticeWithIcon(NotificationType.Success);
+
         Reload.InvokeAsync();
+    }
+
+    private async Task NoticeWithIcon(NotificationType type)
+    {
+        await _notice.Open(new NotificationConfig()
+        {
+            Message = "Duyệt thành công",
+            Description = "",
+            NotificationType = type
+        });
     }
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NotificationService _notice { get; set; }
     }
 }
 #pragma warning restore 1591

@@ -39,6 +39,16 @@ namespace QLNVSSV.API.Controllers
             return Ok(data);
         }
 
+        [HttpPost("GetEmployeeStatusAproval")]
+        public IActionResult GetEmployeeStatusAproval([FromBody] PageParameters parameters)
+        {
+            var data = _employeeRepository.GetPaged_Status(2,parameters);
+
+            Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(data.MetaData));
+
+            return Ok(data);
+        }
+
 
         /// <summary>
         /// 
@@ -121,6 +131,7 @@ namespace QLNVSSV.API.Controllers
         {
             var data = _employeeRepository.GetPaged(parameters);
             Response.Headers.Add("X-Pagination", JsonConvert.SerializeObject(data.MetaData));
+            Response.Headers.Add("totalRecord", JsonConvert.SerializeObject(data.Count));
             return Ok(data);
         }
 

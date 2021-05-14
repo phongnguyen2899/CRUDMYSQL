@@ -90,11 +90,55 @@ namespace QLNVSSV.DATA.Repository
         public override PagedList<Employee> GetPaged(PageParameters parameters)
         {
             var data = _databaseContext.Get();
-            if (parameters != null)
+            if (parameters.Search != null)
             {
-               data = data.Where(x => x.EmployeeName.Contains(""+parameters.Search+""));
+                data= data.Where(x => x.EmployeeName.Contains(parameters.Search));
             }
             return PagedList<Employee>.ToPagedList(data, parameters.PageNumber, parameters.pageSize);
+        }
+
+
+
+        public PagedList<Employee> GetPaged_Shered(IEnumerable<Employee> data,PageParameters parameters)
+        {
+            //var data = _databaseContext.Get();
+            //if (parameters != null)
+            //{
+            //    data = data.Where(x => x.EmployeeName.Contains("" + parameters.Search + ""));
+            //}
+            return PagedList<Employee>.ToPagedList(data, parameters.PageNumber, parameters.pageSize);
+        }
+
+        public PagedList<Employee> GetPaged_Status(int status,PageParameters parameters)
+        {
+            var data = GetEmployeebyStatus(status);
+
+            if (parameters.Search != null)
+            {
+                data = data.Where(x => x.EmployeeName.Contains(parameters.Search));
+            }
+            if (parameters.position != 0)
+            {
+                data = data.Where(x => x.PositionId == parameters.position).ToList();
+            }
+
+            if (parameters.title != 0)
+            {
+                data = data.Where(x => x.TitleId == parameters.title).ToList();
+            }
+            if (parameters.interviewaddress != null)
+            {
+                data = data.Where(x => x.InterviewAddress == parameters.interviewaddress).ToList();
+            }
+            if (parameters.from != null)
+            {
+                data = data.Where(x => x.InterviewTime > parameters.from).ToList();
+            }
+            if (parameters.to != null)
+            {
+                data = data.Where(x => x.InterviewTime < parameters.to).ToList();
+            }
+            return GetPaged_Shered(data, parameters);
         }
 
         public ServiceResponse ChangeSolidarity(int employeeId, int solidarity)

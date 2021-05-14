@@ -82,6 +82,13 @@ using QLNVSSV.Client.Shared;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 11 "C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\_Imports.razor"
+using AntDesign;
+
+#line default
+#line hidden
+#nullable disable
     public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -90,7 +97,7 @@ using QLNVSSV.Client.Shared;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 49 "C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\Shared\NavMenu.razor"
+#line 59 "C:\Users\PhongNV\Desktop\CRUDMYSQL\QLNVSSV\QLNVSSV.Client\Shared\NavMenu.razor"
        
     private bool collapseNavMenu = true;
 

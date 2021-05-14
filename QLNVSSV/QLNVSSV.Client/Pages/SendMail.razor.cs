@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using AntDesign;
+using Microsoft.AspNetCore.Components;
 using Newtonsoft.Json;
 using QLNVSSV.Client.ApiIntergration;
 using QLNVSSV.Client.Components;
@@ -22,12 +23,18 @@ namespace QLNVSSV.Client.Pages
 
         protected override async Task OnInitializedAsync()
         {
+            toggle(true);
             listEmployee =await GetData<QLNVSSV.Models.Modes.Employee>.GetList("http://localhost:37919/api/Employee/GetEmployeeSendMail/1");
+            toggle(false);
         }
         public void CheckAll(ChangeEventArgs e)
         {
             isSubCheck =(bool)e.Value;
         }
+
+        bool loading = false;
+
+        void toggle(bool value) => loading = value;
 
         public List<int> listEmployeeId { get; set; } = new();
         public void CheckboxClicked(int id,object value)
@@ -51,6 +58,7 @@ namespace QLNVSSV.Client.Pages
         }
         public async  Task Send()
         {
+            toggle(true);
             var url = "http://localhost:37919/api/MailContent/SendMail";
             var sendMailViewModel = new SendMailViewModel() { listId = listEmployeeId.ToArray() };
             var json = JsonConvert.SerializeObject(sendMailViewModel);
@@ -63,6 +71,7 @@ namespace QLNVSSV.Client.Pages
                     var result = response.Content.ReadAsStringAsync();
                 }
             }
+            toggle(false);
         }
         public async Task ChangeSolidariry(ChangeEventArgs arg,int employeeId)
         {
@@ -80,6 +89,7 @@ namespace QLNVSSV.Client.Pages
                     var result = response.Content.ReadAsStringAsync();
                 }
             }
+            await NoticeWithIcon(NotificationType.Success);
         }
 
         public async Task ChangeInterviewTime(ChangeEventArgs arg,int id)
@@ -97,6 +107,17 @@ namespace QLNVSSV.Client.Pages
                     var result = response.Content.ReadAsStringAsync();
                 }
             }
+            await NoticeWithIcon(NotificationType.Success);
+        }
+
+        private async Task NoticeWithIcon(NotificationType type)
+        {
+            await _notice.Open(new NotificationConfig()
+            {
+                Message = "Cập nhật thành công",
+                Description = "",
+                NotificationType = type
+            });
         }
 
     }
